@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head></head>
+<body>
+	<div layout:fragment="header" id ="header">
+		<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark top">
+			<a class="navbar-brand" th:href="@{/mangamain}">The Manga</a>
+			
+			<div class= "collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+						<li><a class="nav-link" th:href="@{#}">About</a></li>
+						<li><a class="nav-link" th:href="@{#}">漫画を検索</a></li>
+						<li><a class="nav-link" th:href="@{/mangamain}">自分の本棚を見る</a></li>
+				</ul>
+			</div>
+			
+			
+			<button class="navbar-toggler" type="button" data-toggle="modal" 
+				data-target="#wow" aria-controls="wow"
+				aria-expanded="false" aria-label ="ナビゲーション切り替え">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</nav>
+		
+		<div class="modal fade fullscreen text-center top" id="wow"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul style="list-style-type:none;">
+						<li><a th:href="@{/}">Top</a></li>
+						<li><a th:href="@{/}">About</a></li>
+						<li><a th:href="@{/}">漫画を検索</a></li>
+						<li><a th:href="@{/}">自分の本棚を見る</a></li>
+					</ul>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.fullscreen -->
+	
+	</div><!-- header -->
+</body>
+</html>

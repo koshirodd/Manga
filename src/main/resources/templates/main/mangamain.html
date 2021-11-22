@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head>
+<title>Manga</title>
+<!-- css -->
+<link rel="stylesheet" th:href="@{/css/main/mangamain.css}">
+
+</head>
+<body>
+	<div layout:fragment="content">	
+	
+		<div class="jumbotron">
+			<h1 class="text-center">自分の本棚</h1>
+		</div>
+		
+		<div class="container-fluid main">
+			
+			<div class="buttons  mb-3 justify-content-end">
+				<button class="btn btn-outline-dark" type ="submit" id ="searchManga">検索</button>
+			</div>
+				<!-- ここに、フォームを作成 -->
+				<div class="row">
+					<!-- card  -->
+					<div class="col-md-3 mb-3"  th:each="manga:${mangas}">
+						<div class="card">
+							<a th:href="@{'/mangamain/' + ${manga.id}}">
+								<img class="card-img" alt="" th:src="@{/}">
+							</a>
+							<div class="card-footer bg-light text-center">
+								<p class="card-text" th:text="${manga.title}"></p>
+								<p class="card-text" th:text="${manga.rate}"></p>
+							</div>
+						</div><!-- card -->
+					</div>
+				</div><!-- row -->
+				
+				<div class="buttons  mb-3 justify-content-around">
+					<a class="btn btn-info" th:href ="@{/addmanga}">漫画を追加</a>
+					<button class="btn btn-outline-danger" type ="submit" id ="deleteManga">Delete</button>
+				</div>
+				
+				
+		</div><!-- container-fluid終わり -->
+		
+	</div>
+</body>
+</html>
